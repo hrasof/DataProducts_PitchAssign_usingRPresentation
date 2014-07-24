@@ -1,0 +1,42 @@
+Data Products - Presentation Pitch Assignment using RPresentation
+========================================================
+author: Hratch Sofoian
+date: 24.07.2014
+
+A short explanation
+========================================================
+
+This slidfiy summarizes responses to the questionnaire item "Sex is fun for me and my partner: 
+
+- (a) never or occasionally
+- (b) fairly often
+- (c) very often
+- (d) almost always
+
+for 91 married couples from the Tucson metropolitan area.
+
+```{r}
+library(grid); library(vcd); library(ggplot2); data(SexualFun)
+sf = as.data.frame(SexualFun)
+```
+
+Preview of the Data
+========================================================
+
+```{r}
+head(SexualFun)
+```
+
+Wife's Rating of Sexual Fun
+========================================================
+
+```{r echo = FALSE}
+qplot(Wife, data=sf, weight=Freq) + facet_grid(facets=.~Husband, labeller="label_both")
+```
+
+Husband's Rating of Sexual Fun
+========================================================
+
+```{r echo = FALSE}
+qplot(Husband, data=sf, weight=Freq) + facet_grid(facets=.~Wife, labeller="label_both")
+```
